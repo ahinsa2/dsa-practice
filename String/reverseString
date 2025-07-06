@@ -1,0 +1,76 @@
+public class Solution {
+    public String reverseWords(String s) {
+        
+        String cleaned = removeExtraSpaces(s);
+
+        
+        String reversed = reverseString(cleaned);
+
+        
+        String finalResult = reverseEachWord(reversed);
+
+        return finalResult;
+    }
+
+    
+    private String removeExtraSpaces(String s) {
+        String result = "";
+        boolean spaceFound = false;
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if (ch != ' ') {
+                result += ch;
+                spaceFound = false;
+            } else {
+                if (!spaceFound) {
+                    result += " ";
+                    spaceFound = true;
+                }
+            }
+        }
+
+        
+        if (result.length() > 0 && result.charAt(0) == ' ') {
+            result = result.substring(1);
+        }
+
+        
+        if (result.length() > 0 && result.charAt(result.length() - 1) == ' ') {
+            result = result.substring(0, result.length() - 1);
+        }
+
+        return result;
+    }
+
+    
+    private String reverseString(String s) {
+        String reversed = "";
+        for (int i = s.length() - 1; i >= 0; i--) {
+            reversed += s.charAt(i);
+        }
+        return reversed;
+    }
+
+    
+    private String reverseEachWord(String s) {
+        String result = "";
+        String word = "";
+
+        for (int i = 0; i <= s.length(); i++) {
+            if (i < s.length() && s.charAt(i) != ' ') {
+                word += s.charAt(i);
+            } else {
+                
+                result += reverseString(word);
+                if (i < s.length()) {
+                    result += " ";
+                }
+                word = "";
+            }
+        }
+
+        return result;
+    }
+}
