@@ -1,2 +1,3 @@
 # dsa-practice
-Daily LeetCode
+Daily LeetCode in java and python
+
