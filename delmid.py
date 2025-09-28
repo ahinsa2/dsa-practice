@@ -19,7 +19,8 @@ class Solution(object):
 
         prev.next = slow.next
         return head
-        """12
+        """1
+        
         :type head: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
